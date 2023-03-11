@@ -81,3 +81,74 @@ class LifeCycle extends React.Component {
    }
 }
 ```
+
+***Updating***
+
+This is the third phase through which our component passes. After the mounting phase where the component has been created,and inserted into DOM, the update phase comes into the scene. This is where component’s state changes and hence, re-rendering takes place.
+
+In this phase, the data of the component (state & props) updates in response to user events like clicking, typing and so on. This results in the re-rendering of the component.
+The methods that are available in this phase are:
+
+- shouldComponentUpdate()
+- componentWillUpdate()
+- ComponentDidUpdate()
+
+
+***shouldComponentUpdate()***
+
+This method determines whether the component should be updated or not. By default, it returns true. But at some point, if you want to re-render the component on some condition, then ```shouldComponentUpdate``` method is the right place.
+
+Suppose, for example, you want to only re-render your component when there is a change in prop — then utilize the power of this method. It receives arguments like nextProps and nextState which help us decide whether to re-render by doing a comparison with the current prop value.
+
+***componentWillUpdate()***
+
+Like other methods, its name is also self-explanatory. It is called before the re-rendering of the component takes place. It is called once after the ‘shouldComponentUpdate’ method. If you want to perform some calculation before re-rendering of the component and after updating the state and prop, then this is the best place to do it.
+
+***ComponentDidUpdate()***
+
+This method is called just after the re-rendering of the component. After the new (updated) component gets updated on the DOM, the ‘componentDidUpdate’ method is executed. This method receives arguments like prevProps and prevState.
+
+Have a look to understand the updating methods better:
+
+```javascript
+class LifeCycle extends React.Component {
+      constructor(props)
+      {
+        super(props);
+         this.state = {
+           date : new Date(),
+           clickedStatus: false,
+           list:[]
+         };
+      }
+      componentWillMount() {
+          console.log('Component will mount!')
+       }
+      componentDidMount() {
+          console.log('Component did mount!')
+          this.getList();
+       }
+      getList=()=>{
+       /*** method to make api call***
+       fetch('https://api.mydomain.com')
+          .then(response => response.json())
+          .then(data => this.setState({ list:data }));
+      }
+       shouldComponentUpdate(nextProps, nextState){
+         return this.state.list!==nextState.list
+        }
+       componentWillUpdate(nextProps, nextState) {
+          console.log('Component will update!');
+       }
+       componentDidUpdate(prevProps, prevState) {
+          console.log('Component did update!')
+       }
+      render() {
+          return (
+             <div>
+                <h3>Hello Mounting Lifecycle Methods!</h3>
+             </div>
+          );
+       }
+}
+```
