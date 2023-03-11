@@ -152,3 +152,16 @@ class LifeCycle extends React.Component {
        }
 }
 ```
+***Unmounting***
+
+This is the last phase in the component’s lifecycle. As the name clearly suggests, the component gets unmounted from the DOM in this phase. The method that is available in this phase is:
+
+***componentWillUnmount()***
+
+
+This method is called before the unmounting of the component takes place. Before the removal of the component from the DOM, ‘componentWillUnMount’ executes. This method denotes the end of the component’s lifecycle.
+Here isa flowchart representation of lifecycle methods:
+
+ ![life_cycle](https://user-images.githubusercontent.com/52384251/224494076-7baba995-9b58-40d9-b67b-eb1d705473cf.png)
+
+
