@@ -54,3 +54,30 @@ In this phase, our component renders the first time. The methods that are availa
 This method is called just before a component mounts on the DOM or the render method is called. After this method, the component gets mounted.
 
 ***Note:***  You should not make API calls or any data changes using this.setstate in this method because it is called before the render method. 
+
+
+***componentDidMount()***
+
+This method is called after the component gets mounted on the DOM. Like componentWillMount, it is called once in a lifecycle. Before the execution of this method, the render method is called (i.e., we can access the DOM). We can make API calls and update the state with the API response.
+
+```javascript
+class LifeCycle extends React.Component {
+  componentWillMount() {
+      console.log('Component will mount!')
+   }
+  componentDidMount() {
+      console.log('Component did mount!')
+      this.getList();
+   }
+  getList=()=>{
+   /*** method to make api call***
+  }
+  render() {
+      return (
+         <div>
+            <h3>Hello mounting methods!</h3>
+         </div>
+      );
+   }
+}
+```
