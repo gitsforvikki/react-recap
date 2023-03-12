@@ -366,3 +366,10 @@ A reducer is a pure function that takes the current state of the application and
 
 In summary, actions describe what should change, while reducers define how the state should change in response to the actions.
 
+### What is the difference between a React component and a React element?
+
+A React component is a JavaScript class or function that returns a React element. It is a reusable piece of UI that describes a part of the user interface.
+
+A React element, on the other hand, is a plain JavaScript object that represents a DOM node. It is an immutable representation of a DOM node, which can be created using React.createElement or JSX.
+
+
