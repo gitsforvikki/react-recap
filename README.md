@@ -271,7 +271,7 @@ Redux is one of the most trending libraries for front-end development in today�
 ### List down the components of Redux.
 Redux is composed of the following components:
 
-- ***Action*** -  It’s an object that describes what happened.
+- ***Action*** –  It’s an object that describes what happened.
 - ***Reducer*** –  It is a place to determine how the state will change.
 - ***Store*** – State/ Object tree of the entire application is saved in the Store.
 - ***View*** – Simply displays the data provided by the Store.
