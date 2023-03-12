@@ -173,3 +173,48 @@ Here isa flowchart representation of lifecycle methods:
 The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
 
 React creates a virtual DOM. When state changes in a component it firstly runs a "diffing" algorithm, which identifies what has changed in the virtual DOM. The second step is reconciliation, where it updates the DOM with the results of the difference.
+
+This Virtual DOM works in three simple steps.
+
+- Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
+
+![vd-1](https://user-images.githubusercontent.com/52384251/224521191-834fff3b-31d3-43d9-897c-e26d397f1631.png)
+
+- Then the difference between the previous DOM representation and the new one is calculated.
+
+![vd-2](https://user-images.githubusercontent.com/52384251/224521210-bed561d4-a94d-402e-82cb-9f949bb3f83f.png)
+
+- Once the calculations are done, the real DOM will be updated with only the things that have actually changed. 
+
+
+![vd-3](https://user-images.githubusercontent.com/52384251/224521219-79476509-042f-4616-ad25-ab62daf298b4.png)
+
+
+
+
+
+
+
+
+
+
+### What are props in React?
+
+Props are inputs to a React component. They are single values or objects containing a set of values that are passed to React Components on creation. They are data passed down from a parent component to a child component.
+
+### What is Context API in ReactJS?
+
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language. Using context, we can avoid passing props through intermediate elements.
+
+
+###  What are React Hooks?
+
+Hooks are a new addition to React 16.8. They let you use state and other React features without writing a class.
+
+With Hooks, you can extract stateful logic from a component so it can be tested independently and reused. Hooks allow you to reuse stateful logic without changing your component hierarchy
+
+
+### What is JSX?
+JSX is a shorthand for JavaScript XML. This is a type of file used by React which utilizes the expressiveness of JavaScript along with HTML like template syntax. This makes the HTML file really easy to understand.
