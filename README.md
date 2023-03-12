@@ -218,3 +218,61 @@ With Hooks, you can extract stateful logic from a component so it can be tested 
 
 ### What is JSX?
 JSX is a shorthand for JavaScript XML. This is a type of file used by React which utilizes the expressiveness of JavaScript along with HTML like template syntax. This makes the HTML file really easy to understand.
+
+
+### Why can’t browsers read JSX?
+
+Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. Thus to enable a browser to read JSX, first, we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.
+
+
+### What is an event in React?
+
+In React, events are the triggered reactions to specific actions like mouse hover, mouse click, key press, etc. Handling these events are similar to handling events in DOM elements. 
+
+### How do you create an event in React?
+
+```javascript
+class Display extends React.Component({    
+    show(evt) {
+        // code   
+    },   
+    render() {      
+        // Render the div with an onClick prop (value is a function)        
+        return (            
+           
+<div onClick={this.show}>Click Me!</div>
+ 
+        );    
+    }
+});
+```
+
+
+### What is the significance of keys in React?
+Keys are used for identifying unique Virtual DOM Elements with their corresponding data driving the UI. 
+These keys must be a unique number or string, using which React just reorders the elements instead of re-rendering them. This leads to increase in application’s performance.
+
+### What is Redux?
+Redux is one of the most trending libraries for front-end development in today’s marketplace. It is a predictable state container for JavaScript applications and is used for the entire applications state management.
+
+
+### What are the three principles that Redux follows?
+
+- ***Single source of truth***:  The state of the entire application is stored in an object/ state tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
+
+
+- ***State is read-only***: The only way to change the state is to trigger an action. An action is a plain JS object describing the change. Just like state is the minimal representation of data, the action is the minimal representation of the change to that data.
+
+
+- ***Changes are made with pure functions***: In order to specify how the state tree is transformed by actions, you need pure functions. Pure functions are those whose return value depends solely on the values of their arguments.
+
+
+
+### List down the components of Redux.
+Redux is composed of the following components:
+
+- ***Action*** -  It’s an object that describes what happened.
+- ***Reducer*** –  It is a place to determine how the state will change.
+- ***Store*** – State/ Object tree of the entire application is saved in the Store.
+- ***View*** – Simply displays the data provided by the Store.
+
