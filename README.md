@@ -1,7 +1,7 @@
 # react-recap
 
 
-###What are the major features of React?
+### What are the major features of React?
 
 The major features of React are:
 
@@ -12,6 +12,7 @@ The major features of React are:
 - Uses reusable/composable UI components to develop the view.
 
 ### How to create components in React?
+
 There are two possible ways to create a component.
 
 Function Components: This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements:
@@ -29,7 +30,9 @@ class Greeting extends React.Component {
   }
 }
 ```
-###When to use a Class Component over a Function Component?
+### When to use a Class Component over a Function Component?
+
+
 If the component needs state or lifecycle methods then use class component otherwise use function component.
 
 However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component. So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries.
@@ -228,14 +231,137 @@ This Virtual DOM works in three simple steps.
 
 
 
+### What is state in React?
 
+State of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
+Let's take an example of User component with message state. Here, useState hook has been used to add state to the User component and it returns an array with current state and function to update it.
+
+```javascript
+
+import React, { useState } from "react";
+
+function User() {
+  const [message, setMessage] = useState("Welcome to React world");
+
+  return (
+    <div>
+      <h1>{message}</h1>
+    </div>
+  );
+}
+
+//class components
+
+class User extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      message: "Welcome to React world",
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    );
+  }
+}
+```
 
 
 
 ### What are props in React?
 
 Props are inputs to a React component. They are single values or objects containing a set of values that are passed to React Components on creation. They are data passed down from a parent component to a child component.
+
+Props are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+
+The primary purpose of props in React is to provide following component functionality:
+
+1. Pass custom data to your component.
+2. Trigger state changes.
+3. Use via this.props.reactProp inside component's render() method.
+
+props in class based component
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+
+class ChildComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>{this.props.name}</p>
+        <p>{this.props.age}</p>
+      </div>
+    );
+  }
+}
+
+class ParentComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <ChildComponent name="John" age="30" />
+        <ChildComponent name="Mary" age="25" />
+      </div>
+    );
+  }
+}
+```
+
+props in functional based component
+
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+
+const ChildComponent = (props) => {
+  return (
+    <div>
+      <p>{props.name}</p>
+      <p>{props.age}</p>
+    </div>
+  );
+};
+
+const ParentComponent = () => {
+  return (
+    <div>
+      <ChildComponent name="John" age="30" />
+      <ChildComponent name="Mary" age="25" />
+    </div>
+  );
+};
+```
+
+
+### Why should we not update the state directly?
+
+If you try to update the state directly then it won't re-render the component.
+
+```javascript
+
+//Wrong
+this.state.message = "Hello world";
+Instead use setState() method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
+
+//Correct
+this.setState({ message: "Hello World" });
+Note: You can directly assign to the state object either in constructor or using latest javascript's class field declaration syntax.
+```
+
+
+
+### What is the difference between state and props?
+
+In React, both state and props are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics. state is managed by the component itself and can be updated using the setState() function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children. props (short for "properties") are passed to a component by its parent component and are read-only, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
+
+
 
 ### What is Context API in ReactJS?
 
