@@ -1,5 +1,40 @@
 # react-recap
 
+
+###What are the major features of React?
+
+The major features of React are:
+
+- Uses JSX syntax, a syntax extension of JS that allows developers to write HTML in their JS code.
+- It uses VirtualDOM instead of RealDOM considering that RealDOM manipulations are expensive.
+- Supports server-side rendering.
+- Follows Unidirectional data flow or data binding.
+- Uses reusable/composable UI components to develop the view.
+
+### How to create components in React?
+There are two possible ways to create a component.
+
+Function Components: This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements:
+```javascript
+function Greeting({ message }) {
+  return <h1>{`Hello, ${message}`}</h1>;
+}
+```
+Class Components: You can also use ES6 class to define a component. The above function component can be written as:
+
+```javascript
+class Greeting extends React.Component {
+  render() {
+    return <h1>{`Hello, ${this.props.message}`}</h1>;
+  }
+}
+```
+###When to use a Class Component over a Function Component?
+If the component needs state or lifecycle methods then use class component otherwise use function component.
+
+However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component. So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries.
+
+
 ### React life cycle
 
 Each component in React has a lifecycle which you can monitor and manipulate during its three main phases. The three phases are: Mounting, Updating, and Unmounting.
