@@ -509,49 +509,49 @@ Note: You can directly assign to the state object either in constructor or using
 
       A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as         well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
 
-    **Passing props:**
+        **Passing props:**
 
-    ```javascript
-    class MyComponent extends React.Component {
-      constructor(props) {
-        super(props);
+        ```javascript
+        class MyComponent extends React.Component {
+          constructor(props) {
+            super(props);
 
-        console.log(this.props); // prints { name: 'John', age: 42 }
+            console.log(this.props); // prints { name: 'John', age: 42 }
+          }
+        }
+        ```
+
+      **Not passing props:**
+
+      ```javascript
+      class MyComponent extends React.Component {
+        constructor(props) {
+          super();
+
+          console.log(this.props); // prints undefined
+
+          // but props parameter is still available
+          console.log(props); // prints { name: 'John', age: 42 }
+        }
+
+        render() {
+          // no difference outside constructor
+          console.log(this.props); // prints { name: 'John', age: 42 }
+        }
       }
-    }
-    ```
+      ```
 
-    **Not passing props:**
-
-    ```javascript
-    class MyComponent extends React.Component {
-      constructor(props) {
-        super();
-
-        console.log(this.props); // prints undefined
-
-        // but props parameter is still available
-        console.log(props); // prints { name: 'John', age: 42 }
-      }
-
-      render() {
-        // no difference outside constructor
-        console.log(this.props); // prints { name: 'John', age: 42 }
-      }
-    }
-    ```
-
-    The above code snippets reveals that `this.props` is different only within the constructor. It would be the same outside the constructor.
+      The above code snippets reveals that `this.props` is different only within the constructor. It would be the same outside the constructor.
 
 
 
 
-### What is reconciliation?
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called reconciliation.
+16. ### What is reconciliation?
+    When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the       previously rendered one. When they are not equal, React will update the DOM. This process is called reconciliation.
 
 
 
-### How to set state with a dynamic key name?
+17. ### How to set state with a dynamic key name?
 
     If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with _computed property names_.
 
@@ -562,7 +562,7 @@ When a component's props or state change, React decides whether an actual DOM up
     ```
     
     
-    ### Why React uses `className` over `class` attribute?
+18. ### Why React uses `className` over `class` attribute?
 
     `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React 
     uses `className` instead of `class`. Pass a string as the `className` prop.
@@ -573,36 +573,36 @@ When a component's props or state change, React decides whether an actual DOM up
     }
     ```
     
-    ### What are fragments?
+19. ### What are fragments?
 
-    It's a common pattern in React which is used for a component to return multiple elements. _Fragments_ let you group a list o
-    f children without adding extra nodes to the DOM.
+      It's a common pattern in React which is used for a component to return multiple elements. _Fragments_ let you group a list o
+      f children without adding extra nodes to the DOM.
 
-    ```javascript
-    render() {
-      return (
-        <React.Fragment>
-          <ChildA />
-          <ChildB />
-          <ChildC />
-        </React.Fragment>
-      )
-    }
-    ```
+      ```javascript
+      render() {
+        return (
+          <React.Fragment>
+            <ChildA />
+            <ChildB />
+            <ChildC />
+          </React.Fragment>
+        )
+      }
+      ```
 
-    There is also a _shorter syntax_, but it's not supported in many tools:
+     There is also a _shorter syntax_, but it's not supported in many tools:
 
-    ```javascript
-    render() {
-      return (
-        <>
-          <ChildA />
-          <ChildB />
-          <ChildC />
-        </>
-      )
-    }
-    ```
+      ```javascript
+      render() {
+        return (
+          <>
+            <ChildA />
+            <ChildB />
+            <ChildC />
+          </>
+        )
+      }
+      ```
     
     
     
@@ -620,27 +620,27 @@ When a component's props or state change, React decides whether an actual DOM up
 
 
 
-### What is Context API in ReactJS?
+20. ### What is Context API in ReactJS?
 
-Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+    Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language. Using context, we can avoid passing props through intermediate elements.
+    Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or       preferred language. Using context, we can avoid passing props through intermediate elements.
+  
 
+21. ###  What are React Hooks?
 
-###  What are React Hooks?
+      Hooks are a new addition to React 16.8. They let you use state and other React features without writing a class.
 
-Hooks are a new addition to React 16.8. They let you use state and other React features without writing a class.
-
-With Hooks, you can extract stateful logic from a component so it can be tested independently and reused. Hooks allow you to reuse stateful logic without changing your component hierarchy
-
-
-### What is JSX?
-JSX is a shorthand for JavaScript XML. This is a type of file used by React which utilizes the expressiveness of JavaScript along with HTML like template syntax. This makes the HTML file really easy to understand.
+      With Hooks, you can extract stateful logic from a component so it can be tested independently and reused. Hooks allow you to reuse stateful logic         without changing your component hierarchy
 
 
-### Why can’t browsers read JSX?
+22. ### What is JSX?
+    JSX is a shorthand for JavaScript XML. This is a type of file used by React which utilizes the expressiveness of JavaScript along with HTML like         template syntax. This makes the HTML file really easy to understand.
 
-Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. Thus to enable a browser to read JSX, first, we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.
+
+23. ### Why can’t browsers read JSX?
+
+      Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. Thus to enable a browser to read JSX, first, we need to             transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.
 
 
 ### What is an event in React?
