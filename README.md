@@ -830,3 +830,58 @@ T   he combineReducers function in Redux is used to combine multiple individual 
    A React element, on the other hand, is a plain JavaScript object that represents a DOM node. It is an immutable representation of a DOM node, which      can be created using React.createElement or JSX.
 
 
+47. ### How events are different in React?
+
+    Handling events in React elements has some syntactic differences:
+
+    1. React event handlers are named using camelCase, rather than lowercase.
+    2. With JSX you pass a function as the event handler, rather than a string.
+
+   
+
+48. ### What will happen if you use `setState()` in constructor?
+
+    When you use `setState()`, then apart from assigning to the object state React also re-renders the component and all its children. You would get         error like this: _Can only update a mounted or mounting component._ So we need to use `this.state` to initialize variables inside constructor.
+
+    
+
+49. ### What is the impact of indexes as keys?
+
+    Keys should be stable, predictable, and unique so that React can keep track of elements.
+
+    In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the           optimizations that React can do.
+
+    ```jsx harmony
+    {
+      todos.map((todo, index) => <Todo {...todo} key={index} />);
+    }
+    ```
+
+    If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing       to reevaluate them as much.
+
+    ```jsx harmony
+    {
+      todos.map((todo) => <Todo {...todo} key={todo.id} />);
+    }
+    ```
+
+50. ### What is the impact of indexes as keys?
+
+    Keys should be stable, predictable, and unique so that React can keep track of elements.
+
+    In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do.
+
+    ```jsx harmony
+    {
+      todos.map((todo, index) => <Todo {...todo} key={index} />);
+    }
+    ```
+
+    If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much.
+
+    ```jsx harmony
+    {
+      todos.map((todo) => <Todo {...todo} key={todo.id} />);
+    }
+    ```
+
