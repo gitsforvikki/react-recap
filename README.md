@@ -885,3 +885,54 @@ T   he combineReducers function in Redux is used to combine multiple individual 
     }
     ```
 
+51. ### How do you conditionally render components?
+
+    In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional _short-circuiting_ to render a given part of your component only if a certain condition is true.
+
+    ```jsx harmony
+    const MyComponent = ({ name, address }) => (
+      <div>
+        <h2>{name}</h2>
+        {address && <p>{address}</p>}
+      </div>
+    );
+    ```
+
+    If you need an `if-else` condition then use _ternary operator_.
+
+    ```jsx harmony
+    const MyComponent = ({ name, address }) => (
+      <div>
+        <h2>{name}</h2>
+        {address ? <p>{address}</p> : <p>{"Address is not available"}</p>}
+      </div>
+    );
+    ```
+52. ### What is CRA and its benefits?
+
+    The `create-react-app` CLI tool allows you to quickly create & run React applications with no configuration step.
+
+    Let's create Todo App using _CRA_:
+
+    ```console
+    # Installation
+    $ npm install -g create-react-app
+
+    # Create new project
+    $ create-react-app todo-app
+    $ cd todo-app
+
+    # Build, test and run
+    $ npm run build
+    $ npm run test
+    $ npm start
+    ```
+    
+53. ### What is the lifecycle methods order in mounting?
+
+    The lifecycle methods are called in the following order when an instance of a component is being created and inserted into the DOM.
+
+    1. `constructor()`
+    2. `static getDerivedStateFromProps()`
+    3. `render()`
+    4. `componentDidMount()`
