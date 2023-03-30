@@ -554,7 +554,8 @@ When a component's props or state change, React decides whether an actual DOM up
     
     ### Why React uses `className` over `class` attribute?
 
-    `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
+    `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React 
+    uses `className` instead of `class`. Pass a string as the `className` prop.
 
     ```jsx harmony
     render() {
@@ -564,9 +565,10 @@ When a component's props or state change, React decides whether an actual DOM up
     
     ### What are fragments?
 
-    It's a common pattern in React which is used for a component to return multiple elements. _Fragments_ let you group a list of children without adding extra nodes to the DOM.
+    It's a common pattern in React which is used for a component to return multiple elements. _Fragments_ let you group a list o
+    f children without adding extra nodes to the DOM.
 
-    ```jsx harmony
+    ```javascript
     render() {
       return (
         <React.Fragment>
@@ -580,7 +582,7 @@ When a component's props or state change, React decides whether an actual DOM up
 
     There is also a _shorter syntax_, but it's not supported in many tools:
 
-    ```jsx harmony
+    ```javascript
     render() {
       return (
         <>
