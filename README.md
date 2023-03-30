@@ -361,6 +361,251 @@ Note: You can directly assign to the state object either in constructor or using
 
 In React, both state and props are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics. state is managed by the component itself and can be updated using the setState() function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children. props (short for "properties") are passed to a component by its parent component and are read-only, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
 
+### How to bind methods or event handlers in JSX callbacks?
+
+    There are 3 possible ways to achieve this in class components:
+
+    1. **Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same rule applies for React event handlers defined as class methods. Normally we bind them in constructor.
+
+       ```javascript
+       class User extends Component {
+         constructor(props) {
+           super(props);
+           this.handleClick = this.handleClick.bind(this);
+         }
+         handleClick() {
+           console.log("SingOut triggered");
+         }
+         render() {
+           return <button onClick={this.handleClick}>SingOut</button>;
+         }
+       }
+       ```
+
+    2. **Public class fields syntax:** If you don't like to use bind approach then _public class fields syntax_ can be used to correctly bind callbacks. The Create React App eanables this syntax by default.
+
+       ```jsx harmony
+       handleClick = () => {
+         console.log("SingOut triggered", this);
+       };
+       ```
+
+       ```jsx harmony
+       <button onClick={this.handleClick}>SingOut</button>
+       ```
+
+    3. **Arrow functions in callbacks:** It is possible to use _arrow functions_ directly in the callbacks.
+
+       ```jsx harmony
+       handleClick() {
+           console.log('SingOut triggered');
+       }
+       render() {
+           return <button onClick={() => this.handleClick()}>SignOut</button>;
+       }
+       ```
+
+    **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or _public class fields syntax_ approach considering performance.
+
+  
+
+ ### What are inline conditional expressions?
+
+    You can use either _if statements_ or _ternary expressions_ which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
+
+    ```jsx harmony
+    <h1>Hello!</h1>;
+    {
+      messages.length > 0 && !isLogin ? (
+        <h2>You have {messages.length} unread messages.</h2>
+      ) : (
+        <h2>You don't have unread messages.</h2>
+      );
+    }
+    ```
+
+
+
+### What are controlled components?
+
+    A component that controls the input elements within the forms on subsequent user input is called **Controlled Component**, i.e, every state mutation will have an associated handler function.
+
+    For example, to write all the names in uppercase letters, we use handleChange as below,
+
+    ```javascript
+    handleChange(event) {
+      this.setState({value: event.target.value.toUpperCase()})
+    }
+    ```
+    
+    
+    
+
+
+
+### What are uncontrolled components?
+
+    The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.
+
+    In the below UserProfile component, the `name` input is accessed using ref.
+
+    ```jsx harmony
+    class UserProfile extends React.Component {
+      constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.input = React.createRef();
+      }
+
+      handleSubmit(event) {
+        alert("A name was submitted: " + this.input.current.value);
+        event.preventDefault();
+      }
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              {"Name:"}
+              <input type="text" ref={this.input} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        );
+      }
+    }
+    ```
+
+    In most cases, it's recommend to use controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+    
+    
+    
+  ### What is context?
+
+    _Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+    For example, authenticated users, locale preferences, UI themes need to be accessed in the application by many components.
+
+    ```javascript
+    const { Provider, Consumer } = React.createContext(defaultValue);
+    ```
+
+    
+    
+    
+    
+    
+     ### What is the purpose of using super constructor with props argument?
+
+    A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
+
+    **Passing props:**
+
+    ```javascript
+    class MyComponent extends React.Component {
+      constructor(props) {
+        super(props);
+
+        console.log(this.props); // prints { name: 'John', age: 42 }
+      }
+    }
+    ```
+
+    **Not passing props:**
+
+    ```javascript
+    class MyComponent extends React.Component {
+      constructor(props) {
+        super();
+
+        console.log(this.props); // prints undefined
+
+        // but props parameter is still available
+        console.log(props); // prints { name: 'John', age: 42 }
+      }
+
+      render() {
+        // no difference outside constructor
+        console.log(this.props); // prints { name: 'John', age: 42 }
+      }
+    }
+    ```
+
+    The above code snippets reveals that `this.props` is different only within the constructor. It would be the same outside the constructor.
+
+
+
+
+### What is reconciliation?
+When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called reconciliation.
+
+
+
+### How to set state with a dynamic key name?
+
+    If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with _computed property names_.
+
+    ```javascript
+    handleInputChange(event) {
+      this.setState({ [event.target.id]: event.target.value })
+    }
+    ```
+    
+    
+    ### Why React uses `className` over `class` attribute?
+
+    `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
+
+    ```jsx harmony
+    render() {
+      return <span className={'menu navigation-menu'}>{'Menu'}</span>
+    }
+    ```
+    
+    ### What are fragments?
+
+    It's a common pattern in React which is used for a component to return multiple elements. _Fragments_ let you group a list of children without adding extra nodes to the DOM.
+
+    ```jsx harmony
+    render() {
+      return (
+        <React.Fragment>
+          <ChildA />
+          <ChildB />
+          <ChildC />
+        </React.Fragment>
+      )
+    }
+    ```
+
+    There is also a _shorter syntax_, but it's not supported in many tools:
+
+    ```jsx harmony
+    render() {
+      return (
+        <>
+          <ChildA />
+          <ChildB />
+          <ChildC />
+        </>
+      )
+    }
+    ```
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+
+
+
+
+
 
 
 ### What is Context API in ReactJS?
