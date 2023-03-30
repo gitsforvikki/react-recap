@@ -1,7 +1,7 @@
 # react-recap
 
 
-### What are the major features of React?
+1.  ### What are the major features of React?
 
 The major features of React are:
 
@@ -11,7 +11,7 @@ The major features of React are:
 - Follows Unidirectional data flow or data binding.
 - Uses reusable/composable UI components to develop the view.
 
-### How to create components in React?
+2.  ### How to create components in React?
 
 There are two possible ways to create a component.
 
@@ -30,7 +30,7 @@ class Greeting extends React.Component {
   }
 }
 ```
-### When to use a Class Component over a Function Component?
+3. ### When to use a Class Component over a Function Component?
 
 
 If the component needs state or lifecycle methods then use class component otherwise use function component.
@@ -38,7 +38,7 @@ If the component needs state or lifecycle methods then use class component other
 However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component. So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries.
 
 
-### React life cycle
+4. ### React life cycle
 
 Each component in React has a lifecycle which you can monitor and manipulate during its three main phases. The three phases are: Mounting, Updating, and Unmounting.
 Components are created (mounted on the DOM), grow by updating, and then die (unmount on DOM). This is referred to as a component lifecycle.
@@ -206,7 +206,7 @@ Here isa flowchart representation of lifecycle methods:
 
 
 
-### What is the Virtual DOM?
+5. ### What is the Virtual DOM?
 
 The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
 
@@ -231,7 +231,7 @@ This Virtual DOM works in three simple steps.
 
 
 
-### What is state in React?
+6. ### What is state in React?
 
 State of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
@@ -274,7 +274,7 @@ class User extends React.Component {
 
 
 
-### What are props in React?
+7. ### What are props in React?
 
 Props are inputs to a React component. They are single values or objects containing a set of values that are passed to React Components on creation. They are data passed down from a parent component to a child component.
 
@@ -340,7 +340,7 @@ const ParentComponent = () => {
 ```
 
 
-### Why should we not update the state directly?
+8. ### Why should we not update the state directly?
 
   If you try to update the state directly then it won't re-render the component.
 
@@ -360,17 +360,22 @@ Note: You can directly assign to the state object either in constructor or using
 
 
 
-### What is the difference between state and props?
+9. ### What is the difference between state and props?
 
-In React, both state and props are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics. state is managed by the component itself and can be updated using the setState() function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children. props (short for "properties") are passed to a component by its parent component and are read-only, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
+  In React, both state and props are are plain JavaScript objects and used to manage the data of a component, but they are used in different 
+  ways and have different characteristics. state is managed by the component itself and can be updated using the setState() function. Unlike props, 
+  state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the         component and its children. props (short for "properties") are passed to a component by its parent component and are read-only, meaning that they 
+  cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
 
-### How to bind methods or event handlers in JSX callbacks?
+10. ### How to bind methods or event handlers in JSX callbacks?
 
     There are 3 possible ways to achieve this in class components:
 
-    1. **Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same rule applies for React event handlers defined as class methods. Normally we bind them in constructor.
+    1. **Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same rule applies for React event handlers 
+      defined as class methods. Normally we bind them in constructor.
 
        ```javascript
+       
        class User extends Component {
          constructor(props) {
            super(props);
@@ -383,9 +388,10 @@ In React, both state and props are are plain JavaScript objects and used to mana
            return <button onClick={this.handleClick}>SingOut</button>;
          }
        }
+       
        ```
 
-    2. **Public class fields syntax:** If you don't like to use bind approach then _public class fields syntax_ can be used to correctly bind callbacks. The Create React App eanables this syntax by default.
+    2. **Public class fields syntax:** If you don't like to use bind approach then _public class fields syntax_ can be used to correctly bind callbacks.        The Create React App eanables this syntax by default.
 
        ```jsx harmony
        handleClick = () => {
@@ -408,30 +414,32 @@ In React, both state and props are are plain JavaScript objects and used to mana
        }
        ```
 
-    **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or _public class fields syntax_ approach considering performance.
+    **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to      go with `.bind()` or _public class fields syntax_ approach considering performance.
 
   
 
- ### What are inline conditional expressions?
+11.  ### What are inline conditional expressions?
 
-    You can use either _if statements_ or _ternary expressions_ which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
+      You can use either _if statements_ or _ternary expressions_ which are available from JS to conditionally render expressions. Apart from these             approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
 
-    ```jsx harmony
-    <h1>Hello!</h1>;
-    {
-      messages.length > 0 && !isLogin ? (
-        <h2>You have {messages.length} unread messages.</h2>
-      ) : (
-        <h2>You don't have unread messages.</h2>
-      );
-    }
-    ```
+      ```jsx harmony
+
+          <h1>Hello!</h1>;
+          {
+            messages.length > 0 && !isLogin ? (
+              <h2>You have {messages.length} unread messages.</h2>
+            ) : (
+              <h2>You don't have unread messages.</h2>
+            );
+          }
+
+      ```
 
 
 
-### What are controlled components?
+12. ### What are controlled components?
 
-    A component that controls the input elements within the forms on subsequent user input is called **Controlled Component**, i.e, every state mutation will have an associated handler function.
+    A component that controls the input elements within the forms on subsequent user input is called **Controlled Component**, i.e, every state mutation     will have an associated handler function.
 
     For example, to write all the names in uppercase letters, we use handleChange as below,
 
@@ -446,9 +454,9 @@ In React, both state and props are are plain JavaScript objects and used to mana
 
 
 
-### What are uncontrolled components?
+13. ### What are uncontrolled components?
 
-    The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.
+    The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a ref to find its current value when     you need it. This is a bit more like traditional HTML.
 
     In the below UserProfile component, the `name` input is accessed using ref.
 
@@ -479,28 +487,27 @@ In React, both state and props are are plain JavaScript objects and used to mana
     }
     ```
 
-    In most cases, it's recommend to use controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+    In most cases, it's recommend to use controlled components to implement forms. In a controlled component, form data is handled by a React component.     The alternative is uncontrolled components, where form data is handled by the DOM itself.
     
     
     
-  ### What is context?
+ 14. ### What is context?
 
-    _Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.
+     _Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-    For example, authenticated users, locale preferences, UI themes need to be accessed in the application by many components.
+     For example, authenticated users, locale preferences, UI themes need to be accessed in the application by many components.
 
-    ```javascript
-    const { Provider, Consumer } = React.createContext(defaultValue);
-    ```
+      ```javascript
+      
+     const { Provider, Consumer } = React.createContext(defaultValue);
+     
+      ```
 
     
     
-    
-    
-    
-     ### What is the purpose of using super constructor with props argument?
+ 15. ### What is the purpose of using super constructor with props argument?
 
-    A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
+      A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as         well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
 
     **Passing props:**
 
