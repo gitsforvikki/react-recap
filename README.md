@@ -354,9 +354,9 @@ const ParentComponent = () => {
 ```javascript
   //Correct
   this.setState({ message: "Hello World" });
-  Note: You can directly assign to the state object either in constructor or using latest javascript's class field declaration syntax.
-
+  
 ```
+Note: You can directly assign to the state object either in constructor or using latest javascript's class field declaration syntax.
 
 
 
