@@ -936,3 +936,62 @@ T   he combineReducers function in Redux is used to combine multiple individual 
     2. `static getDerivedStateFromProps()`
     3. `render()`
     4. `componentDidMount()`
+    
+    
+    
+ 54.  ### Why should component names start with capital letter?
+
+       If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error           as an unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
+
+        ```jsx harmony
+        class SomeComponent extends Component {
+          // Code goes here
+        }
+        ```
+
+        You can define component class which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is           fine:
+
+        ```jsx harmony
+        class myComponent extends Component {
+          render() {
+            return <div />;
+          }
+        }
+
+             export default myComponent;
+       ```
+
+         While when imported in another file it should start with capital letter:
+
+        ```jsx harmony
+        import MyComponent from "./myComponent";
+        ```
+
+  55. ### What is the difference between constructor and getInitialState?
+
+       You should initialize state in the constructor when using ES6 classes, and `getInitialState()` method when using `React.createClass()`.
+
+        **Using ES6 classes:**
+
+        ```javascript
+        class MyComponent extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              /* initial state */
+            };
+          }
+        }
+        ```
+
+        **Using `React.createClass()`:**
+
+        ```javascript
+        const MyComponent = React.createClass({
+          getInitialState() {
+            return {
+              /* initial state */
+            };
+          },
+        });
+        ```
