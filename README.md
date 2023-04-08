@@ -995,3 +995,52 @@ T   he combineReducers function in Redux is used to combine multiple individual 
           },
         });
         ```
+        
+  56. ### What is the difference between `super()` and `super(props)` in React using ES6 classes?
+
+        When you want to access `this.props` in `constructor()` then you should pass props to `super()` method.
+
+        **Using `super(props)`:**
+
+        ```javascript
+        class MyComponent extends React.Component {
+          constructor(props) {
+            super(props);
+            console.log(this.props); // { name: 'John', ... }
+          }
+        }
+        ```
+
+        **Using `super()`:**
+
+        ```javascript
+        class MyComponent extends React.Component {
+          constructor(props) {
+            super();
+            console.log(this.props); // undefined
+          }
+        }
+        ```
+  
+  57.  ### How to loop inside JSX?
+
+        You can simply use `Array.prototype.map` with ES6 _arrow function_ syntax.
+
+        For example, the `items` array of objects is mapped into an array of components:
+
+        ```jsx harmony
+        <tbody>
+          {items.map((item) => (
+            <SomeComponent key={item.id} name={item.name} />
+          ))}
+        </tbody>
+        ```
+
+        But you can't iterate using `for` loop:
+
+        ```jsx harmony
+        <tbody>
+          for (let i = 0; i < items.length; i++) {
+            <SomeComponent key={items[i].id} name={items[i].name} />
+          }
+        </tbody>
