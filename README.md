@@ -1044,3 +1044,103 @@ T   he combineReducers function in Redux is used to combine multiple individual 
             <SomeComponent key={items[i].id} name={items[i].name} />
           }
         </tbody>
+58. ### What is the difference between React and ReactDOM?
+
+     The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component           classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains              `ReactDOM.render()`, and in `react-dom/server` we have _server-side rendering_ support with `ReactDOMServer.renderToString()` and                         `ReactDOMServer.renderToStaticMarkup()`.
+   
+59. ### How to pretty print JSON with React?
+
+     We can use `<pre>` tag so that the formatting of the `JSON.stringify()` is retained:
+
+     ```jsx harmony
+     const data = { name: "John", age: 42 };
+
+     class User extends React.Component {
+       render() {
+         return <pre>{JSON.stringify(data, null, 2)}</pre>;
+       }
+     }
+
+     React.render(<User />, document.getElementById("container"));
+     ```
+   
+ 60. ### Why you can't update props in React?
+
+     The React philosophy is that props should be _immutable_ and _top-down_. This means that a parent can send any prop values to a child, but the           child can't modify received props.
+
+  61.  ### How to update a component every second?
+
+         You need to use `setInterval()` to trigger the change, but you also need to clear the timer when the component unmounts to prevent errors and            memory leaks.
+
+         ```javascript
+         componentDidMount() {
+           this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000)
+         }
+
+         componentWillUnmount() {
+           clearInterval(this.interval)
+         }
+         ```
+
+  62. ### How to import and export components using React and ES6?
+
+       You should use default for exporting the components
+
+       ```jsx harmony
+       import React from "react";
+       import User from "user";
+
+       export default class MyProfile extends React.Component {
+         render() {
+           return <User type="customer">//...</User>;
+         }
+       }
+       ```
+
+ 63. ### How to define constants in React?
+
+     You can use ES7 `static` field to define constant.
+
+     ```javascript
+     class MyComponent extends React.Component {
+       static DEFAULT_PAGINATION = 10;
+     }
+     ```
+63. ### Is it possible to use async/await in plain React?
+
+     If you want to use `async`/`await` in React, you will need _Babel_ and [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-           transform-async-to-generator) plugin. React Native ships with Babel and a set of transforms.
+     
+     
+64. ### How to implement _default_ or _NotFound_ page?
+
+     A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path              attribute as below
+
+     ```jsx harmony
+     <Switch>
+       <Route exact path="/" component={Home} />
+       <Route path="/user" component={User} />
+       <Route component={NotFound} />
+     </Switch>
+     ```
+65. ### What are the core principles of Redux?
+
+     Redux follows three fundamental principles:
+
+     1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes        it easier to keep track of changes over time and debug or inspect the application.
+     2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the        views nor the network callbacks will ever write directly to the state.
+     3. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure         functions that take the previous state and an action as parameters, and return the next state.
+66. ### Can I dispatch an action in reducer?
+
+     Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be _without side effects_, simply digesting the action payload        and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
+
+
+67. ### What is the difference between React context and React Redux?
+
+     You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was        designed for.
+
+     Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses            context internally but it doesn't expose this fact in the public API.
+ 
+   
+   
+   
+   
