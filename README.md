@@ -1194,3 +1194,244 @@ T   he combineReducers function in Redux is used to combine multiple individual 
 
         **Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base           parameters.
 
+  73. ### What is render hijacking in react?
+
+       The concept of render hijacking is the ability to control what a component will output from another component. It means that you decorate your          component by wrapping it into a Higher-Order component. By wrapping, you can inject additional props or make other changes, which can cause              changing logic of rendering. It does not actually enable hijacking, but by using HOC you make your component behave differently.
+
+  74. ### What are hooks?
+
+         Hooks is a special function (introduced as a new feature in React 16.8) that lets you use state and other React features without writing a               class.
+
+         Let's see an example of useState hook:
+
+         ```jsx
+         import { useState } from "react";
+
+         function Example() {
+           // Declare a new state variable, which we'll call "count"
+           const [count, setCount] = useState(0);
+
+           return (
+             <div>
+               <p>You clicked {count} times</p>
+               <button onClick={() => setCount(count + 1)}>Click me</button>
+             </div>
+           );
+         }
+         ```
+
+  75.  ### What rules need to be followed for hooks?
+
+           You need to follow two rules in order to use hooks,
+
+           1. Call Hooks only at the top level of your react functions. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions.                   This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between                         multiple useState and useEffect calls.
+           2. Call Hooks from React Functions only. i.e, You shouldn’t call Hooks from regular JavaScript functions.
+
+  76. ### What are the benefits of React Router V4?
+
+       Below are the main benefits of React Router V4 module,
+
+       1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(`<BrowserRouter>`)             which  wraps specific child router components(`<Route>`).
+       2. You don't need to manually set history. The router module will take care history by wrapping routes with `<BrowserRouter>` component.
+       3. The application size is reduced by adding only the specific router module(Web, core, or native)
+
+  77. ### Is it mandatory to define constructor for React component?
+         No, it is not mandatory. i.e, If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your              React component.
+         
+       
+       
+   78. ### What is dynamic import?
+
+         You can achieve code-splitting in your app using dynamic import.
+
+         Let's take an example of addition,
+
+         1. **Normal Import**
+
+         ```javascript
+         import { add } from "./math";
+         console.log(add(10, 20));
+         ```
+
+         2. **Dynamic Import**
+
+         ```javascript
+         import("./math").then((math) => {
+           console.log(math.add(10, 20));
+         });
+         ```
+
+     79.  ### Is it possible to use react without JSX?
+
+             Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment.                Each JSX    element is just syntactic sugar for calling `React.createElement(component, props, ...children)`.
+
+             For example, let us take a greeting example with JSX,
+
+             ```javascript
+             class Greeting extends React.Component {
+               render() {
+                 return <div>Hello {this.props.message}</div>;
+               }
+             }
+
+             ReactDOM.render(
+               <Greeting message="World" />,
+               document.getElementById("root")
+             );
+             ```
+
+             You can write the same code without JSX as below,
+
+             ```javascript
+             class Greeting extends React.Component {
+               render() {
+                 return React.createElement("div", null, `Hello ${this.props.message}`);
+               }
+             }
+
+             ReactDOM.render(
+               React.createElement(Greeting, { message: "World" }, null),
+               document.getElementById("root")
+             );
+             ```
+     80. ### What is the difference between Real DOM and Virtual DOM?
+
+           Below are the main differences between Real DOM and Virtual DOM,
+
+           | Real DOM                             | Virtual DOM                          |
+           | ------------------------------------ | ------------------------------------ |
+           | Updates are slow                     | Updates are fast                     |
+           | DOM manipulation is very expensive.  | DOM manipulation is very easy        |
+           | You can update HTML directly.        | You Can’t directly update HTML       |
+           | It causes too much of memory wastage | There is no memory wastage           |
+           | Creates a new DOM if element updates | It updates the JSX if element update |
+
+
+      81. ### What are the differences between Functional and Class Components?
+ 
+              There are two different ways to create components in ReactJS. The main differences are listed down as below,
+
+              ## 1.  Syntax:
+
+              The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
+
+              The syntax for class component looks like as below.
+                ```js
+                class App extends Reacts.Component {
+                  render(){
+                    return <h1>This is a class component</h1>}
+                  }
+
+                ```
+
+                **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
+
+                Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
+
+                ```js
+                function App(){
+                  return <div className="App">
+                    <h1>Hello, I'm a function component</h1>
+                    </div>
+                }
+
+                ```
+
+               ## 2. State:
+
+                  State contains information or data about a component which may change over time. 
+
+                  In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method.                     The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to                       different data types in the `this.state` object such as string, boolean, numbers, etc.
+                  **A simple example showing how we use the setState() and constructor()**
+
+                  ```js
+                  class App extends Component {
+                    constructor() {
+                      super();
+                      this.state = {
+                        message: "This is a class component",
+                      };
+                    }
+                    updateMessage() {
+                      this.setState({t
+                        message: "Updating the class component",
+                      });
+                    }
+                    render() {
+                      return (
+                        <>
+                          <h1>{this.state.message}</h1>
+                          <button
+                            onClick={() => {
+                              this.updateMessage();
+                            }}>
+                            Click!!
+                          </button>
+                        </>
+                      );
+                    }
+                  }
+
+                  ```
+
+            You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented              in           functional component which enable to use state in functional component too.
+
+            The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current                      state and      the next one is a function (setState) that updates the value of the current state. 
+
+            Let's see an example to demonstrate the state in functional components,
+
+            ```js
+            function App() {
+              const [message, setMessage] = useState("This is a functional component");
+              const updateMessage = () => {
+                setCountry("Updating the functional component");
+              };
+              return (
+                <div className="App">
+                  <h1>{message} </h1>
+                  <button onClick={updateMessage}>Click me!!</button>
+                </div>
+              );
+            }
+            ```
+
+            ## 4. Props:
+            Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords,                they are       similar to HTML attributes. 
+
+            The props are accessible in child class component using `this.props` as shown in below example,
+            ```js
+            class Child extends React.Component {
+              render() {
+                return <h1> This is a functional component and component name is {this.props.name} </h1>;
+              }
+            }
+
+            class Parent extends React.Component {
+              render() {
+                     return (
+                        <div className="Parent">
+                        <Child name="First child component" />
+                        <Child name="Second child component" />
+                        </div>
+                      );
+               }
+            }
+            ```
+
+              Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword. 
+
+              ```js
+              function Child(props) {
+                return <h1>This is a child component and the component name is{props.name}</h1>;
+              }
+
+              function Parent() {
+                return (
+                  <div className="Parent">
+                        <Child name="First child component" />
+                        <Child name="Second child component" />
+                  </div>
+                );
+              }
+              ```
+
