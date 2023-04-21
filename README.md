@@ -1261,7 +1261,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
          });
          ```
 
-     79.  ### Is it possible to use react without JSX?
+   79.  ### Is it possible to use react without JSX?
 
              Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment.                Each JSX    element is just syntactic sugar for calling `React.createElement(component, props, ...children)`.
 
@@ -1294,7 +1294,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
                document.getElementById("root")
              );
              ```
-     80. ### What is the difference between Real DOM and Virtual DOM?
+   80. ### What is the difference between Real DOM and Virtual DOM?
 
            Below are the main differences between Real DOM and Virtual DOM,
 
@@ -1307,7 +1307,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
            | Creates a new DOM if element updates | It updates the JSX if element update |
 
 
-      81. ### What are the differences between Functional and Class Components?
+   81. ### What are the differences between Functional and Class Components?
  
               There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
