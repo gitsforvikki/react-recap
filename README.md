@@ -1196,5 +1196,5 @@ T   he combineReducers function in Redux is used to combine multiple individual 
      | React Native, which is a React type to build mobile applications are fast| Ionic, Angular's mobile native app is                         |
      | In React, data flows only in one way and hence debugging is easy         | In Angular, data flows both way i.e it has two-way data bindi |                                                                                      
 
-**Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
+    **Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base           parameters.
 
