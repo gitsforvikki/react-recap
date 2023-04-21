@@ -1192,12 +1192,8 @@ T   he combineReducers function in Redux is used to combine multiple individual 
      | React                                                                    | Angular                                                       |
      | ------------------------------------------------------------------------ | --------------------------------------------------------------|
      | React is a library and has only the View layer                           | Angular is a framework and has complete MVC functionality     |
-     | React handles rendering on the server side                               | AngularJS renders only on the client side but Angular 2 and   | 
-                                                                                                                
-     | React uses JSX that looks like HTML in JS which can be confusing         | Angular follows the template approach for HTML, which makes   |
-                                                                                                           
+     | React handles rendering on the server side                               | AngularJS renders only on the client side but Angular 2 and   |            | React uses JSX that looks like HTML in JS which can be confusing         | Angular follows the template approach for HTML, which makes   |
      | React Native, which is a React type to build mobile applications are fast| Ionic, Angular's mobile native app is                         |
-                                                                                                              
      | In React, data flows only in one way and hence debugging is easy         | In Angular, data flows both way i.e it has two-way data bindi |                                                                                      
 
 **Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
