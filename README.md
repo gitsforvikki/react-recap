@@ -1173,7 +1173,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
    
   71. ### What is an action in Redux?
 
-     _Actions_ are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
+     _Actions_ are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of          information for the store. Actions must have a type property that indicates the type of action being performed.
 
      For example, let's take an action which represents adding a new todo item:
 
@@ -1183,7 +1183,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
        text: 'Add todo item'
      }
  
-```
+    ```
 
   72. ### What is the difference between React and Angular?
 
