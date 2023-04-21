@@ -1311,7 +1311,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
  
               There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
-              ## 1.  Syntax:
+          ## 1.  Syntax:
 
               The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
 
@@ -1337,7 +1337,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
 
                 ```
 
-               ## 2. State:
+          ## 2. State:
 
                   State contains information or data about a component which may change over time. 
 
@@ -1395,7 +1395,7 @@ T   he combineReducers function in Redux is used to combine multiple individual 
             }
             ```
 
-            ## 4. Props:
+          ## 4. Props:
             Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords,                they are       similar to HTML attributes. 
 
             The props are accessible in child class component using `this.props` as shown in below example,
