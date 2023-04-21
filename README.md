@@ -1140,7 +1140,21 @@ T   he combineReducers function in Redux is used to combine multiple individual 
 
      Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses            context internally but it doesn't expose this fact in the public API.
  
-   
+ 68. ### What is Redux Thunk?
+
+     _Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the             dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and                `getState()` as parameters.
+     
+     
+ 69. ### What are the features of Redux DevTools?
+
+     Some of the main features of Redux DevTools are below,
+
+     1. Lets you inspect every state and action payload.
+     2. Lets you go back in time by _cancelling_ actions.
+     3. If you change the reducer code, each _staged_ action will be re-evaluated.
+     4. If the reducers throw, you will see during which action this happened, and what the error was.
+     5. With `persistState()` store enhancer, you can persist debug sessions across page reloads.
+
    
    
    
