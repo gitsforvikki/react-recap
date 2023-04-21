@@ -1187,9 +1187,9 @@ T   he combineReducers function in Redux is used to combine multiple individual 
 
   72. ### What is the difference between React and Angular?
 
-       Let's see the difference between React and Angular in a table format.
+        Let's see the difference between React and Angular in a table format.
 
-              | React                                                         | Angular                                                            |
+         | React                                                              | Angular                                                            |
          | -------------------------------------------------------------------| --------------------------------------------------------------------
          | React is a library and has only the View layer                     | Angular is a framework and has complete MVC functionality          |              | React handles rendering on the server side                         | AngularJS renders only on the client side but Angular 2 and above  |                                                                                                                         renders on the server side     |              | React uses JSX that looks like HTML in JS which can be confusing   | Angular follows the template approach for HTML,which makes code    |
          |                                                                    |                                  shorter and easy to understand    |              | React Native, which is a React type to build mobile applications   | Ionic, Angular's mobile native app is   relatively less            |                                           are faster and more stable                                  stable and slower                                |
