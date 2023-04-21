@@ -1173,28 +1173,28 @@ T   he combineReducers function in Redux is used to combine multiple individual 
    
   71. ### What is an action in Redux?
 
-     _Actions_ are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of          information for the store. Actions must have a type property that indicates the type of action being performed.
+       _Actions_ are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of          information for the store. Actions must have a type property that indicates the type of action being performed.
 
-     For example, let's take an action which represents adding a new todo item:
+       For example, let's take an action which represents adding a new todo item:
 
-     ```
-     {
-       type: ADD_TODO,
-       text: 'Add todo item'
-     }
- 
-    ```
+           ```
+           {
+             type: ADD_TODO,
+             text: 'Add todo item'
+           }
+
+          ```
 
   72. ### What is the difference between React and Angular?
 
-     Let's see the difference between React and Angular in a table format.
+       Let's see the difference between React and Angular in a table format.
 
-     | React                                                                    | Angular                                                       |
-     | ------------------------------------------------------------------------ | --------------------------------------------------------------|
-     | React is a library and has only the View layer                           | Angular is a framework and has complete MVC functionality     |
-     | React handles rendering on the server side                               | AngularJS renders only on the client side but Angular 2 and   |            | React uses JSX that looks like HTML in JS which can be confusing         | Angular follows the template approach for HTML, which makes   |
-     | React Native, which is a React type to build mobile applications are fast| Ionic, Angular's mobile native app is                         |
-     | In React, data flows only in one way and hence debugging is easy         | In Angular, data flows both way i.e it has two-way data bindi |                                                                                      
+         | React                                                                    | Angular                                                       |
+         | ------------------------------------------------------------------------ | --------------------------------------------------------------|
+         | React is a library and has only the View layer                           | Angular is a framework and has complete MVC functionality     |
+         | React handles rendering on the server side                               | AngularJS renders only on the client side but Angular 2 and   |            | React uses JSX that looks like HTML in JS which can be confusing         | Angular follows the template approach for HTML, which makes   |
+         | React Native, which is a React type to build mobile applications are fast| Ionic, Angular's mobile native app is                         |
+         | In React, data flows only in one way and hence debugging is easy         | In Angular, data flows both way i.e it has two-way data bindi |                                                                                      
 
-    **Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base           parameters.
+        **Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base           parameters.
 
