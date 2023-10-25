@@ -794,7 +794,7 @@ Note: You can directly assign to the state object either in constructor or using
 
 41. ### What is the purpose of the combineReducers function in Redux?
 
-T   he combineReducers function in Redux is used to combine multiple individual reducers into a single root reducer. In a Redux application, the state is     managed by a single store and each piece of the state is managed by a specific reducer. The combineReducers function takes an object whose keys           correspond to the keys in the state, and whose values are the individual reducers that will manage those parts of the state.
+    The combineReducers function in Redux is used to combine multiple individual reducers into a single root reducer. In a Redux application, the state is     managed by a single store and each piece of the state is managed by a specific reducer. The combineReducers function takes an object whose keys           correspond to the keys in the state, and whose values are the individual reducers that will manage those parts of the state.
 
 42. ### What is the difference between a functional component and a class component in React?
 
@@ -815,24 +815,24 @@ T   he combineReducers function in Redux is used to combine multiple individual 
 
 45. ### What is the difference between a reducer and an action in Redux?
 
-   In Redux, a reducer and an action are two different but related concepts.
+        In Redux, a reducer and an action are two different but related concepts.
 
-    An action is a plain JavaScript object that describes the change that should be made to the state of the application. It has a type property that         defines the type of action being performed, and a payload property that provides any additional data needed to perform the action. Actions are           dispatched from the application to the Redux store, which then passes the action to the reducers.
-
-     A reducer is a pure function that takes the current state of the application and an action, and returns the next state of the application. The            reducer is responsible for handling the actions and updating the state accordingly. It should not perform any side-effects, such as making API           calls, but should instead only return the next state.
-
-    In summary, actions describe what should change, while reducers define how the state should change in response to the actions.
+      An action is a plain JavaScript object that describes the change that should be made to the state of the application. It has a type property that  defines the type of action being     performed, and a payload property that provides any additional data needed to perform the action. Actions are  dispatched from the application to the Redux store, which then passes   the action to the reducers.
+  
+       A reducer is a pure function that takes the current state of the application and an action, and returns the next state of the application. The            reducer is responsible for             handling the actions and updating the state accordingly. It should not perform any side-effects, such as making API           calls, but should instead only return the next state.
+  
+      In summary, actions describe what should change, while reducers define how the state should change in response to the actions.
 
 46. ### What is the difference between a React component and a React element?
 
-   A React component is a JavaScript class or function that returns a React element. It is a reusable piece of UI that describes a part of the user         interface.
+     A React component is a JavaScript class or function that returns a React element. It is a reusable piece of UI that describes a part of the user         interface.
 
    A React element, on the other hand, is a plain JavaScript object that represents a DOM node. It is an immutable representation of a DOM node, which      can be created using React.createElement or JSX.
 
 
 47. ### How events are different in React?
 
-    Handling events in React elements has some syntactic differences:
+      Handling events in React elements has some syntactic differences:
 
     1. React event handlers are named using camelCase, rather than lowercase.
     2. With JSX you pass a function as the event handler, rather than a string.
